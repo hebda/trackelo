@@ -105,16 +105,34 @@ def getResults():
     ]
 
     # NB: We ignore mid-race splits (e.g. they sometimes track the 1500m split of a mile race)
-    eventIds = [
-        10229632, # 2000m
-        10229503, # mile
-        10229502, # 1500m
+    eventIdsM = [
+        10229610, # men's 10000m
+        10229609, # men's 5000m
+        10229608, # men's 2 mile
+        10229607, # men's 3000m
+        10229614, # men's 3000mSC
+        10229632, # men's 2000m
+        10229503, # men's mile
+        10229502, # men's 1500m
+    ]
+    eventIdsF = [
+        10229521, # women's 10000m
+        10229514, # women's 5000m
+        10229519, # women's 3000m
+        10229524, # women's 3000mSC
+        10229517, # women's mile
+        10229513, # women's 1500m
     ]
     gender = "M"
 
+    if gender == "M":
+        eventIds = eventIdsM
+    elif gender == "F":
+        eventIds = eventIdsF
+
     for competitionId in competitionIds:
         for eventId in eventIds:
-            site = f"https://worldathletics.org/competition/calendar-results/results/{competitionId}?eventId={eventId}&gender={gender}"
+            site = f"https://worldathletics.org/competition/calendar-results/results/{competitionId}?eventId={eventId}"
             eventResults = [result.Result(f"{competitionId} {racename}", date, table) for (racename, date, table) in query.query(site)]
             # championships tend to be in reverse order
             results.extend(reversed(eventResults))
