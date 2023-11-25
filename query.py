@@ -49,7 +49,6 @@ def parse(soup):
                 results[0] = (racename, date, results[0][2]+rows[1:] )
             else:
                 results.append( (racename, date, rows) )
-            print(results)
     return results
 
 def getDate(soup):
