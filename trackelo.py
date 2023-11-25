@@ -104,8 +104,7 @@ def getResults():
 
     ]
 
-    # NB: order is important
-    # They sometimes track the 1500m split of a mile race
+    # NB: We ignore mid-race splits (e.g. they sometimes track the 1500m split of a mile race)
     eventIds = [
         10229632, # 2000m
         10229503, # mile
@@ -119,8 +118,6 @@ def getResults():
             eventResults = [result.Result(f"{competitionId} {racename}", date, table) for (racename, date, table) in query.query(site)]
             # championships tend to be in reverse order
             results.extend(reversed(eventResults))
-            if eventResults:
-                break
     results = sorted(results, key=lambda result: result.datetuple)
     return results
 

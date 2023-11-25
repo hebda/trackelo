@@ -14,6 +14,12 @@ def query(site):
 def parse(soup):
     results = []
     date = getDate(soup)
+
+    ## Return nothing if this is a mid-race split
+    is_midrace_split = sum(["Split times" in section for section in soup.find_all("h1")]) > 0
+    if is_midrace_split:
+        return results
+    
     for section in soup.find_all("section"):
         eventname = section.h2.string
         for race in section:
