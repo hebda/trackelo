@@ -4,8 +4,9 @@ Thanks Matt for inspiration: https://mattmazzola.medium.com/implementing-the-elo
 
 Current dataset:
 - 2023
-- men's 1500m, mile, and 2000m races
-- Diamond League and World Championships (including prelims)
+- men's 1500m, mile, 2000m, 3000m, 3000mSC, 2 mile, 5000m, 10,000m
+- women's 1500m, mile, 3000m, 3000mSC, 5000m, 10,000m
+- Diamond League and World Championships (excluding prelims and semis)
 
 Elo settings:
 - k-factor: 32
@@ -14,27 +15,42 @@ Elo settings:
 - Everyone starts with 1000 points
 - Points cannot go below 1000
 
-# Results
+# Results - Men
 
 ```
-Jakob INGEBRIGTSEN             1662
-Yared NUGUSE                   1583
-Josh KERR                      1560
-Reynold Kipkorir CHERUIYOT     1364
-George MILLS                   1363
-Mario GARCÍA                   1338
-Narve Gilje NORDÅS             1332
-Azeddine HABZ                  1259
-Niels LAROS                    1253
-Neil GOURLEY                   1210
-Cole HOCKER                    1207
-Stewart MCSWEYN                1206
-Tshepo TSHITE                  1197
-Charles GRETHEN                1159
-Pietro ARESE                   1149
-Abel KIPSANG                   1148
-Lamecha GIRMA                  1139
-Matthew STONIER                1130
-Adel MECHAAL                   1130
-Isaac NADER                    1100
+Jakob INGEBRIGTSEN             1633
+Soufiane EL BAKKALI            1549
+Yared NUGUSE                   1466
+Yomif KEJELCHA                 1456
+Lamecha GIRMA                  1433
+Samuel FIREWU                  1419
+Joshua CHEPTEGEI               1411
+Simon Kiprop KOECH             1386
+Daniel Simiu EBENYO            1386
+Josh KERR                      1375
+Jacob KROP                     1349
+George BEAMISH                 1338
+Telahun Haile BEKELE           1330
+Hagos GEBRHIWET                1323
+Selemon BAREGA                 1322
+```
+
+# Results - Women
+
+```
+Faith KIPYEGON                 1650
+Beatrice CHEBET                1501
+Diribe WELTEJI                 1494
+Winfred Mutile YAVI            1468
+Beatrice CHEPKOECH             1457
+Laura MUIR                     1455
+Freweyni HAILU                 1437
+Sifan HASSAN                   1409
+Letesenbet GIDEY               1380
+Ejgayehu TAYE                  1377
+Nelly CHEPCHIRCHIR             1356
+Medina EISA                    1355
+Faith CHEROTICH                1352
+Margaret Chelimo KIPKEMBOI     1337
+Lilian Kasait RENGERUK         1308
 ```
