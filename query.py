@@ -15,9 +15,11 @@ def parse(soup):
     results = []
     date = getDate(soup)
 
-    ## Return nothing if this is a mid-race split
+    ## Return nothing if this is a mid-race split or unwanted final
     is_midrace_split = sum(["Split times" in section for section in soup.find_all("h1")]) > 0
-    if is_midrace_split:
+    is_unwanted = sum(["U23 Events" in section or "Pre-Programme" in section or "U18 Events" in section
+                       for section in soup.find_all("h1")]) > 0
+    if is_midrace_split or is_unwanted:
         return results
     
     for section in soup.find_all("section"):
@@ -41,9 +43,13 @@ def parse(soup):
                                 fatal(f"Thats a weird cell: {cell.name}")
                             rows[-1].append(cell.get_text())
                         # print(rows[-1])
-            if not racename:
+            if "Final" not in racename:
                 continue
-            results.append( (racename, date, rows) )
+            if len(results) > 0: ## merge with previous result
+                results[0] = (racename, date, results[0][2]+rows[1:] )
+            else:
+                results.append( (racename, date, rows) )
+            print(results)
     return results
 
 def getDate(soup):
